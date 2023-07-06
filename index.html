@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Şifre Oluşturucu / By Slenzy</title>
+  <style>
+   body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+  }
+  
+  h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000000; /* Siyah renk */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .header {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: #ffffff;
+    font-size: 24px;
+  }
+  
+  .color-picker {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .password {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Rastgele Şifre Oluşturucu</h1>
+    <div class="password"></div>
+    <button class="button" onclick="generatePassword()">Yeni Şifre Oluştur</button>
+    <input type="color" class="color-picker" onchange="changeBackgroundColor(this.value)">
+  </div>
+
+  <script>
+    function generatePassword() {
+      var length = 14; 
+      var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"; 
+      var password = "";
+      
+      for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset[randomIndex];
+      }
+      
+      var passwordElement = document.querySelector('.password');
+      passwordElement.textContent = password;
+    }
+    
+    function changeBackgroundColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+    
+    window.onload = function() {
+      document.body.style.backgroundColor = '#f2f2f2';
+    };
+  </script>
+</body>
+</html>
